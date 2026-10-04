@@ -1,43 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
-    // 1️⃣ CHANGE NAME HERE (Direct JS Code)
+    // 1️⃣ CHANGE NAME HERE
     // ==========================================
-    // 👉 Jab bhi naam change karna ho, bas is line me naam badal dein:
-    const GUEST_NAME = "Waleed "; 
+    // 👉 Naam change karna ho to sirf yahan change karein
+    const GUEST_NAME = "Waleed";
 
-    // Auto-update all elements on the page
+    // Auto-update all name elements
     document.querySelectorAll('.guest-name').forEach(el => {
         el.innerText = GUEST_NAME;
     });
 
-    // ==========================================
-    // 2️⃣ MESSAGES & OTHER LOGIC
-    // ==========================================
-    const messageOptions = [
-        `On this special day, I just want to remind you how amazing you are. ✨<br><br>
-        May your life be blessed with endless happiness, success, and good health.<br>
-        You bring so much positivity and joy to everyone around you.<br>
-        May all your dreams and wishes come true this year.<br>
-        Keep smiling, shining, and spreading your wonderful warmth.<br>
-        Wishing you a year full of unforgettable and beautiful moments!<br>
-        Happy Birthday once again! 🎉`,
 
-        `Happy Birthday to someone who truly deserves the very best! 🎂<br><br>
-        Another year older, wiser, and even more incredible than before.<br>
-        May your day be filled with sweet surprises, laughter, and cheer.<br>
-        I hope every step you take brings you closer to your grandest goals.<br>
-        Thank you for being such a wonderful person.<br>
-        May this new chapter bring you unlimited peace and joy.<br>
-        Have a fantastic birthday celebration! 🎈`
-    ];
+    // ==========================================
+    // 2️⃣ CHANGE BIRTHDAY MESSAGE HERE 💌
+    // ==========================================
+    // 👉 Future mein message change karna ho
+    // 👉 Sirf neeche wala text change karein
 
+    const BIRTHDAY_MESSAGE = `
+        𓆩♡𓆪 Happy Birthday my dear fiance. 🎂🥳🥳✨<br><br>
+
+        Wishing you many, many happy returns of the day✨!
+        May your day be filled with happiness.
+        Stay blessed, keep smiling🌷, and may all your dreams come true 💐🪄<br><br>
+
+        May Allah bless you with success at every step of your life 🤲🏻✨🌸💫
+        I pray that you achieve every dream you have and receive countless blessings,
+        success, and beautiful moments in life. 🫰🏻🫶🏻
+    `;
+
+    // Auto-update message
     const messageContainer = document.getElementById('messageBody');
+
     if (messageContainer) {
-        messageContainer.innerHTML = messageOptions[Math.floor(Math.random() * messageOptions.length)];
+        messageContainer.innerHTML = BIRTHDAY_MESSAGE;
     }
 
-    // Audio Control
+
+    // ==========================================
+    // 3️⃣ AUDIO CONTROL
+    // ==========================================
+
     const bgMusic = document.getElementById('bgMusic');
     const musicToggleBtn = document.getElementById('musicToggleBtn');
 
@@ -51,9 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (musicToggleBtn) musicToggleBtn.addEventListener('click', toggleAudio);
+    if (musicToggleBtn) {
+        musicToggleBtn.addEventListener('click', toggleAudio);
+    }
 
-    // Navigation Logic
+
+    // ==========================================
+    // 4️⃣ NAVIGATION LOGIC
+    // ==========================================
+
     const screen1 = document.getElementById('screen1');
     const screen2 = document.getElementById('screen2');
     const screen3 = document.getElementById('screen3');
@@ -73,25 +83,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.showModalStep = function(step) {
         modalOverlay.classList.remove('hidden');
-        
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === step - 1);
         });
 
         if (step === 1) {
             modalTitle.innerText = "It's Your Special Day! 🎉";
-            modalActions.innerHTML = `<button class="primary-btn" onclick="showModalStep(2)">Next</button>`;
+            modalActions.innerHTML =
+                `<button class="primary-btn" onclick="showModalStep(2)">Next</button>`;
+
         } else if (step === 2) {
             modalTitle.innerText = "Do you wanna see what I made??";
+
             modalActions.innerHTML = `
                 <button class="primary-btn" onclick="showModalStep(3)">Yes! 💖</button>
                 <button class="secondary-btn" onclick="showModalStep(3)">No</button>
             `;
+
         } else if (step === 3) {
             modalTitle.innerText = "Here is your special surprise! ✨";
-            modalActions.innerHTML = `<button class="primary-btn" onclick="goToScreen2()">Let's Go! 🚀</button>`;
+
+            modalActions.innerHTML =
+                `<button class="primary-btn" onclick="goToScreen2()">Let's Go! 🚀</button>`;
         }
     };
+
 
     window.goToScreen2 = function() {
         modalOverlay.classList.add('hidden');
@@ -99,7 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
         screen2.classList.remove('hidden');
     };
 
-    // Room Controls
+
+    // ==========================================
+    // 5️⃣ ROOM CONTROLS
+    // ==========================================
+
     const btnLights = document.getElementById('btnLights');
     const btnMusic = document.getElementById('btnMusic');
     const btnDecorate = document.getElementById('btnDecorate');
@@ -112,7 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (btnMusic) btnMusic.addEventListener('click', toggleAudio);
+    if (btnMusic) {
+        btnMusic.addEventListener('click', toggleAudio);
+    }
 
     if (btnDecorate) {
         btnDecorate.addEventListener('click', () => {
@@ -128,19 +151,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
     function createBalloons() {
         const container = document.getElementById('balloonContainer');
-        const colors = ['#ff4081', '#ab47bc', '#42a5f5', '#66bb6a', '#ffa726'];
-        
+        const colors = [
+            '#ff4081',
+            '#ab47bc',
+            '#42a5f5',
+            '#66bb6a',
+            '#ffa726'
+        ];
+
         for (let i = 0; i < 20; i++) {
             const balloon = document.createElement('div');
+
             balloon.className = 'balloon';
             balloon.style.left = Math.random() * 90 + '%';
-            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            balloon.style.animationDelay = Math.random() * 3 + 's';
+            balloon.style.backgroundColor =
+                colors[Math.floor(Math.random() * colors.length)];
+
+            balloon.style.animationDelay =
+                Math.random() * 3 + 's';
+
             container.appendChild(balloon);
         }
     }
+
 
     if (btnMessage) {
         btnMessage.addEventListener('click', () => {
@@ -149,14 +185,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // ==========================================
+    // 6️⃣ LETTER
+    // ==========================================
+
     const openLetterBtn = document.getElementById('openLetterBtn');
+
     if (openLetterBtn) {
         openLetterBtn.addEventListener('click', () => {
             document.getElementById('curtainDoors').classList.add('open');
         });
     }
 
+
+    // ==========================================
+    // 7️⃣ BACK TO ROOM
+    // ==========================================
+
     const backToRoomBtn = document.getElementById('backToRoomBtn');
+
     if (backToRoomBtn) {
         backToRoomBtn.addEventListener('click', () => {
             screen3.classList.add('hidden');
@@ -164,11 +212,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // ==========================================
+    // 8️⃣ MEMORIES
+    // ==========================================
+
     const viewMemoriesBtn = document.getElementById('viewMemoriesBtn');
+
     if (viewMemoriesBtn) {
         viewMemoriesBtn.addEventListener('click', () => {
             screen3.classList.add('hidden');
             screen4.classList.remove('hidden');
         });
     }
+
 });
