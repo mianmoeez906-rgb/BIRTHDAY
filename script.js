@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1️⃣ CHANGE NAME HERE
     // ==========================================
     // 👉 Naam change karna ho to sirf yahan change karein
-    const GUEST_NAME = "Waleed";
+    const GUEST_NAME = "Ammar";
 
     // Auto-update all name elements
     document.querySelectorAll('.guest-name').forEach(el => {
