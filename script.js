@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 👉 Sirf neeche wala text change karein
 
     const BIRTHDAY_MESSAGE = `
-        𓆩♡𓆪 Happy Birthday my dear fiance. 🎂🥳🥳✨<br><br>
+        𓆩♡𓆪 Happy Birthday my dear friend. 🎂🥳🥳✨<br><br>
 
         Wishing you many, many happy returns of the day✨!
         May your day be filled with happiness.
